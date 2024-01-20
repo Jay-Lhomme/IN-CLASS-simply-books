@@ -6,7 +6,7 @@ const viewBookDetails = (bookFirebaseKey) => new Promise((resolve, reject) => {
     .then((bookObject) => {
       getSingleAuthor(bookObject.author_id)
         .then((authorObject) => {
-          resolve({ authorObject, ...bookObject });
+          resolve({ ...bookObject, authorObject });
         });
     }).catch((error) => reject(error));
 });

@@ -6,8 +6,10 @@ import Link from 'next/link';
 import {
   Navbar, Container, Nav,
 } from 'react-bootstrap';
+import { useAuth } from '../utils/context/authContext';
 
 export default function NavBar() {
+  const user = useAuth;
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -23,6 +25,17 @@ export default function NavBar() {
             </Link>
             <Link passHref href="/book/new">
               <Nav.Link>Create Book</Nav.Link>
+            </Link>
+            <Link passHref href="/author">
+              <Nav.Link>Authors</Nav.Link>
+            </Link>
+            <Link passHref href="/author/new">
+              <Nav.Link>Create Author</Nav.Link>
+            </Link>
+            <Link passHref href="/profile">
+              <Nav.Link>
+                <span>Bye!&apos;{user.displayName}&apos;</span>
+              </Nav.Link>
             </Link>
           </Nav>
         </Navbar.Collapse>
