@@ -34,7 +34,6 @@ function Home() {
           <BookCard key={book.firebaseKey} bookObj={book} onUpdate={getAllTheBooks} />
         ))}
       </div>
-
     </div>
   );
 }
